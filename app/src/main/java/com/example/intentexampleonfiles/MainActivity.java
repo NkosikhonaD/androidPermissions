@@ -15,6 +15,9 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -161,5 +164,47 @@ public class MainActivity extends AppCompatActivity
         {
 
         }
+    }
+
+    /**
+     * Callback method that inflates the menu items to be visible into your App bar.
+     * @param menu
+     * @return
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.app_menu,menu);
+        return true;
+        //return super.onCreateOptionsMenu(menu);
+    }
+
+    /**
+     * call back method
+     * For Handling click events on menu items
+     * @param item menuItem selected
+     * @return if succesfully handled menu it return true
+     */
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item)
+    {
+        //check which menu item was clide by gettnig the ItemId
+        // item id is the id defined on the menu xml file
+        switch (item.getItemId())
+        {
+            case R.id.home_id:
+                Toast.makeText(MainActivity.this,"Home item clicked",Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.about_us:
+                Toast.makeText(MainActivity.this,"About us clicked",Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.contact_id:
+                Toast.makeText(MainActivity.this,"Contact us clicked",Toast.LENGTH_SHORT).show();
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+
     }
 }
