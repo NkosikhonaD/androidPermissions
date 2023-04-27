@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">IntentExampleOnFiles</string>
+    <string name= "read_file">Read file</string>
+    <string name="display_content">Display File content</string>
+</resources>
